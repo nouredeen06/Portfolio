@@ -1,0 +1,19 @@
+[
+  {
+    "category": "Desktop App Development",
+    "items": [
+      { "name": ".NET Core",            "level": 75 },
+      { "name": "AvaloniaUI",           "level": 85 },
+      { "name": "MySQL/MariaDB",        "level": 80 },
+      { "name": "Microsoft SQL Server", "level": 60 }
+    ]
+  },
+  {
+    "category": "Design",
+    "items": [
+      { "name": "Figma",         "level": 75 },
+      { "name": "UI / UX",       "level": 72 },
+      { "name": "Motion Design", "level": 60 }
+    ]
+  }
+]

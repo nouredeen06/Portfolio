@@ -1,0 +1,51 @@
+{
+  "name": "Nouredeen Ghazal",
+  "navInitials": "NG",
+  "heroTag": "— Available for work",
+  "tagline": "Full-Stack Developer crafting modern Desktop applications with clean code and elegant design",
+  "about": {
+    "paragraphs": [
+      "Software developer creating cross-platform desktop applications with C# and AvaloniaUI, with a focus on writing clean code for functional, data-driven user interfaces.,"
+    ],
+    "stats": [
+      {
+        "number": "1+",
+        "label": "Years exp."
+      },
+      {
+        "number": "3",
+        "label": "Projects"
+      },
+      {
+        "number": "∞",
+        "label": "Coffee cups"
+      },
+      {
+        "number": "",
+        "label": ""
+      }
+    ]
+  },
+  "contact": {
+    "tagline": "Let's build something great together.",
+    "links": [
+      {
+        "label": "Email Me",
+        "href": "mailto:nouredeen.ghazal42@gmail.com",
+        "primary": true
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/nouredeen06"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://linkedin.com/in/nouredeen-ghazal/"
+      },
+      {
+        "label": "Ko-fi",
+        "href": "https://ko-fi.com/nouredeen"
+      }
+    ]
+  }
+}

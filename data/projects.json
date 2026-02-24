@@ -1,0 +1,12 @@
+[
+  {
+    "title": "E-Commerce Platform",
+    "description": "A full-featured online store with real-time inventory management, Stripe payments, and a custom CMS. Handles thousands of daily transactions.",
+    "image": "images/projects/ecommerce.png",
+    "tags": ["React", "Node.js", "PostgreSQL", "Stripe"],
+    "links": [
+      { "label": "Live Site", "href": "#", "primary": true },
+      { "label": "GitHub",    "href": "#"                  }
+    ]
+  }
+]

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cursor-dot" id="cursor"></div>
+
+<nav>
+  <div class="nav-logo" id="nav-name">DEV</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-tag" id="hero-tag">— Portfolio</div>
+  <h1 class="hero-name" id="hero-name">YOUR<span>NAME.</span></h1>
+  <p class="hero-sub" id="hero-subtitle">Loading...</p>
+  <div class="hero-scroll">scroll</div>
+</section>
+
+<section id="about">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">About</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-layout">
+    <div class="about-text fade-in" id="about-text"><p>Loading...</p></div>
+    <div class="about-stats fade-in" id="about-stats"></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-line"></div>
+  </div>
+  <div id="projects-container"></div>
+</section>
+
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Skills</h2>
+    <div class="section-line"></div>
+  </div>
+  <div id="skills-container"></div>
+</section>
+
+<section id="contact">
+  <div class="contact-inner">
+    <h2 class="contact-tagline fade-in" id="contact-tagline">
+      Let's build something <span>great together.</span>
+    </h2>
+    <div class="contact-links fade-in" id="contact-links"></div>
+  </div>
+</section>
+
+<footer>
+  <span id="footer-name">Portfolio</span>
+  <span>Built with HTML, CSS &amp; JSON</span>
+</footer>
+
+<script>
+  // Load all three JSON data files in parallel, then render
+  Promise.all([
+    fetch('data/info.json').then(r => r.json()),
+    fetch('data/projects.json').then(r => r.json()),
+    fetch('data/skills.json').then(r => r.json())
+  ])
+  .then(([info, projects, skills]) => {
+    renderInfo(info);
+    renderProjects(projects);
+    renderSkills(skills);
+    setupObserver();
+    setupCursor();
+  })
+  .catch(err => {
+    console.error('Failed to load portfolio data:', err);
+    document.getElementById('hero-subtitle').textContent =
+      'Error loading data — open this with a local server (e.g. VS Code Live Server or: npx serve .)';
+  });
+
+  // ── RENDERERS ────────────────────────────────────────────────────────────────
+
+  function renderInfo(info) {
+    document.title = info.name + ' — Portfolio';
+    document.getElementById('nav-name').textContent =
+      info.navInitials || info.name.split(' ').map(w => w[0]).join('');
+    document.getElementById('footer-name').textContent = info.name;
+
+    // Hero
+    document.getElementById('hero-tag').textContent = info.heroTag || '— Portfolio';
+    document.getElementById('hero-subtitle').textContent = info.tagline;
+    const parts = info.name.split(' ');
+    const heroEl = document.getElementById('hero-name');
+    heroEl.innerHTML = parts.length >= 2
+      ? `${parts.slice(0, -1).join(' ')}<span>${parts[parts.length - 1]}.</span>`
+      : `<span>${info.name}</span>`;
+
+    // About
+    document.getElementById('about-text').innerHTML =
+      info.about.paragraphs.map(p => `<p>${p}</p>`).join('');
+    document.getElementById('about-stats').innerHTML =
+      info.about.stats.map(s => `
+        <div class="stat-box">
+          <div class="stat-num">${s.number}</div>
+          <div class="stat-label">${s.label}</div>
+        </div>`).join('');
+
+    // Contact
+    document.getElementById('contact-tagline').innerHTML =
+      info.contact.tagline.replace(/([^.!?]*)$/, m => `<span>${m}</span>`);
+    document.getElementById('contact-links').innerHTML =
+      info.contact.links.map(l =>
+        `<a href="${l.href}" class="contact-btn ${l.primary ? 'primary' : ''}">${l.label}</a>`
+      ).join('');
+  }
+
+  function renderProjects(projects) {
+    // "image" can be a URL like "https://..." or a local path like "images/projects/myapp.png"
+    document.getElementById('projects-container').innerHTML =
+      projects.map(p => {
+        const imgHTML = p.image
+          ? `<img src="${p.image}" alt="${p.title}" loading="lazy"
+               onerror="this.parentNode.innerHTML='<div class=\\'no-image\\'>${p.title.charAt(0)}</div>'">`
+          : `<div class="no-image">${p.title.charAt(0)}</div>`;
+
+        const tagsHTML = (p.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
+
+        const linksHTML = (p.links || []).length ? `
+          <div class="project-links">
+            ${p.links.map(l =>
+              `<a href="${l.href}" class="project-link ${l.primary ? 'primary' : ''}"
+                  target="_blank" rel="noopener">${l.primary ? '↗ ' : ''}${l.label}</a>`
+            ).join('')}
+          </div>` : '';
+
+        return `
+          <div class="project-card fade-in">
+            <div class="project-img">${imgHTML}</div>
+            <div class="project-body">
+              <div class="project-tags">${tagsHTML}</div>
+              <h3 class="project-title">${p.title}</h3>
+              <p class="project-desc">${p.description}</p>
+              ${linksHTML}
+            </div>
+          </div>`;
+      }).join('');
+  }
+
+  function renderSkills(skills) {
+    document.getElementById('skills-container').innerHTML =
+      skills.map(cat => `
+        <div class="skill-category fade-in">
+          <div class="skill-cat-title">${cat.category}</div>
+          <div class="skill-list">
+            ${cat.items.map(s => `
+              <div class="skill-item">
+                <span class="skill-name">${s.name}</span>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" data-level="${s.level}"></div>
+                </div>
+                <span class="skill-pct">${s.level}%</span>
+              </div>`).join('')}
+          </div>
+        </div>`).join('');
+  }
+
+  // ── UTILITIES ────────────────────────────────────────────────────────────────
+
+  function setupObserver() {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+            bar.style.width = bar.dataset.level + '%';
+          });
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in, .skill-category').forEach(el => observer.observe(el));
+  }
+
+  function setupCursor() {
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .project-card').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(3)';
+        cursor.style.opacity = '0.5';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursor.style.opacity = '1';
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
