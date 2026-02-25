@@ -5,7 +5,7 @@
       { "name": ".NET Core",            "level": 75 },
       { "name": "AvaloniaUI",           "level": 85 },
       { "name": "MySQL/MariaDB",        "level": 80 },
-      { "name": "Microsoft SQL Server", "level": 60 }
+      { "name": "MS SQL Server", "level": 60 }
     ]
   },
   {
