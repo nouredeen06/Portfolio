@@ -112,9 +112,9 @@ nav {
 
 .hero-name {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(1.8rem, 8vw, 9rem);
+    /* font-size controlled by fitHeroName() in index.html */
     width: 100%;
-    word-break: break-word;
+    overflow: hidden;
     font-weight: 800;
     line-height: 0.9;
     letter-spacing: -0.04em;
