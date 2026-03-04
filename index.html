@@ -23,9 +23,9 @@
 
 <section class="hero" id="home">
   <div class="hero-grid-bg"></div>
-  <div class="hero-tag" id="hero-tag">— Portfolio</div>
-  <h1 class="hero-name" id="hero-name">YOUR<span>NAME.</span></h1>
-  <p class="hero-sub" id="hero-subtitle">Loading...</p>
+  <div class="hero-tag" id="hero-tag">— Available for work</div>
+  <h1 class="hero-name" id="hero-name">Nouredeen<span>Ghazal.</span></h1>
+  <p class="hero-sub" id="hero-subtitle">Full-Stack Developer crafting modern Desktop applications with clean code and elegant design</p>
   <div class="hero-scroll">scroll</div>
 </section>
 
@@ -69,8 +69,7 @@
 </section>
 
 <footer>
-  <span id="footer-name">Portfolio</span>
-  <span>Built with HTML, CSS &amp; JSON</span>
+  <span id="footer-name">Nouredeen Ghazal</span>
 </footer>
 
 <script>
@@ -99,7 +98,6 @@
     document.title = info.name + ' — Portfolio';
     document.getElementById('nav-name').textContent =
       info.navInitials || info.name.split(' ').map(w => w[0]).join('');
-    document.getElementById('footer-name').textContent = info.name;
 
     // Hero
     document.getElementById('hero-tag').textContent = info.heroTag || '— Portfolio';
