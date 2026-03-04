@@ -538,16 +538,23 @@ footer {
 /* ── CURSOR ───────────────────────────────────────────────── */
 
 .cursor-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 10000;
-    opacity: 0;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.2s;
+    display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .cursor-dot {
+        display: block;
+        width: 6px;
+        height: 6px;
+        background: var(--accent);
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 10000;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.2s;
+    }
 }
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
