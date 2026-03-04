@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="cursor-dot" id="cursor"></div>
 
 <nav>
-  <div class="nav-logo" id="nav-name">DEV</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Work</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+    <div class="nav-logo" id="nav-name">DEV</div>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </nav>
 
 <section class="hero" id="home">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-tag" id="hero-tag">— Available for work</div>
-  <h1 class="hero-name" id="hero-name">Nouredeen<span>Ghazal.</span></h1>
-  <p class="hero-sub" id="hero-subtitle">Full-Stack Developer crafting modern Desktop applications with clean code and elegant design</p>
-  <div class="hero-scroll">scroll</div>
+    <div class="hero-grid-bg"></div>
+    <div class="hero-tag" id="hero-tag">— Available for work</div>
+    <h1 class="hero-name" id="hero-name">Nouredeen<span>Ghazal.</span></h1>
+    <p class="hero-sub" id="hero-subtitle">Full-Stack Developer crafting modern Desktop applications with clean code and elegant
+        design</p>
+    <div class="hero-scroll">scroll</div>
 </section>
 
 <section id="about">
@@ -72,6 +74,7 @@
     <span id="footer-name">Nouredeen Ghazal</span>
 </footer>
 
+
 <script>
     // Load all three JSON data files in parallel, then render
     Promise.all([
@@ -88,7 +91,7 @@
         })
         .catch(err => {
             console.error('Failed to load portfolio data:', err);
-            document.getElementById('hero-subtitle').textContent =
+            document.querySelector('#hero-subtitle').textContent =
                 'Error loading data — open this with a local server (e.g. VS Code Live Server or: npx serve .)';
         });
 
@@ -96,14 +99,15 @@
 
     function renderInfo(info) {
         document.title = info.name + ' — Portfolio';
-        document.getElementById('nav-name').textContent =
+        document.querySelector('#nav-name').textContent =
             info.navInitials || info.name.split(' ').map(w => w[0]).join('');
+        document.querySelector('#footer-name').textContent = info.name;
 
         // Hero
-        document.getElementById('hero-tag').textContent = info.heroTag || '— Portfolio';
-        document.getElementById('hero-subtitle').textContent = info.tagline;
+        document.querySelector('#hero-tag').textContent = info.heroTag || '— Portfolio';
+        document.querySelector('#hero-subtitle').textContent = info.tagline;
         const parts = info.name.split(' ');
-        const heroEl = document.getElementById('hero-name');
+        const heroEl = document.querySelector('#hero-name');
         heroEl.innerHTML = parts.length >= 2
             ? `${parts.slice(0, -1).join(' ')}<span>${parts[parts.length - 1]}.</span>`
             : `<span>${info.name}</span>`;
@@ -111,9 +115,9 @@
         document.fonts.ready.then(fitHeroName);
 
         // About
-        document.getElementById('about-text').innerHTML =
+        document.querySelector('#about-text').innerHTML =
             info.about.paragraphs.map(p => `<p>${p}</p>`).join('');
-        document.getElementById('about-stats').innerHTML =
+        document.querySelector('#about-stats').innerHTML =
             info.about.stats.map(s => `
         <div class="stat-box">
           <div class="stat-num">${s.number}</div>
@@ -121,9 +125,9 @@
         </div>`).join('');
 
         // Contact
-        document.getElementById('contact-tagline').innerHTML =
+        document.querySelector('#contact-tagline').innerHTML =
             info.contact.tagline.replace(/([^.!?]*)$/, m => `<span>${m}</span>`);
-        document.getElementById('contact-links').innerHTML =
+        document.querySelector('#contact-links').innerHTML =
             info.contact.links.map(l =>
                 `<a href="${l.href}" class="contact-btn ${l.primary ? 'primary' : ''}">${l.label}</a>`
             ).join('');
@@ -131,7 +135,7 @@
 
     function renderProjects(projects) {
         // "image" can be a URL like "https://..." or a local path like "images/projects/myapp.png"
-        document.getElementById('projects-container').innerHTML =
+        document.querySelector('#projects-container').innerHTML =
             projects.map(p => {
                 const imgHTML = p.image
                     ? `<img src="${p.image}" alt="${p.title}" loading="lazy"
@@ -162,7 +166,7 @@
     }
 
     function renderSkills(skills) {
-        document.getElementById('skills-container').innerHTML =
+        document.querySelector('#skills-container').innerHTML =
             skills.map(cat => `
         <div class="skill-category fade-in">
           <div class="skill-cat-title">${cat.category}</div>
@@ -182,7 +186,7 @@
     // ── UTILITIES ────────────────────────────────────────────────────────────────
 
     function fitHeroName() {
-        const el = document.getElementById('hero-name');
+        const el = document.querySelector('#hero-name');
         const container = el.parentElement;
         const padding = parseFloat(getComputedStyle(container).paddingLeft) * 2;
         const maxWidth = container.clientWidth - padding;
@@ -215,29 +219,52 @@
                     });
                 }
             });
-        }, { threshold: 0.1 });
+        }, {threshold: 0.1});
 
         document.querySelectorAll('.fade-in, .skill-category').forEach(el => observer.observe(el));
     }
 
     function setupCursor() {
-        const cursor = document.getElementById('cursor');
+        // Skip entirely on touch devices
+        if (!window.matchMedia('(hover: hover)').matches) return;
+
+        const cursor = document.querySelector('#cursor');
+        let mouseX = 0, mouseY = 0;
+        let rafPending = false;
+
+        // Use transform instead of left/top — no layout recalc, composited on GPU
+        cursor.style.left = '0px';
+        cursor.style.top = '0px';
+
         document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-        document.querySelectorAll('a, button, .project-card').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(3)';
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (!rafPending) {
+                rafPending = true;
+                requestAnimationFrame(() => {
+                    cursor.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
+                    rafPending = false;
+                });
+            }
+        }, {passive: true});
+
+        // Event delegation — one listener on the document instead of one per element
+        document.addEventListener('mouseover', e => {
+            if (e.target.closest('a, button, .project-card')) {
+                cursor.style.scale = '3';
                 cursor.style.opacity = '0.5';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            }
+        }, {passive: true});
+
+        document.addEventListener('mouseout', e => {
+            if (e.target.closest('a, button, .project-card')) {
+                cursor.style.scale = '1';
                 cursor.style.opacity = '1';
-            });
-        });
+            }
+        }, {passive: true});
     }
 </script>
+
 
 </body>
 </html>
