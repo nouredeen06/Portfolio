@@ -225,16 +225,12 @@
     }
 
     function setupCursor() {
-        // Skip entirely on touch devices
-        if (!window.matchMedia('(hover: hover)').matches) return;
+        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
         const cursor = document.querySelector('#cursor');
-        cursor.style.opacity = '0';
         let mouseX = 0, mouseY = 0;
         let rafPending = false;
-
-        cursor.style.left = '0px';
-        cursor.style.top = '0px';
+        let hasMoved = false;
 
         document.addEventListener('mousemove', e => {
             mouseX = e.clientX;
@@ -243,11 +239,22 @@
                 rafPending = true;
                 requestAnimationFrame(() => {
                     cursor.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
-                    cursor.style.opacity = '1';
+                    if (!hasMoved) {
+                        cursor.classList.add('visible');
+                        hasMoved = true;
+                    }
                     rafPending = false;
                 });
             }
-        }, {passive: true});
+        }, { passive: true });
+
+        document.addEventListener('mouseover', e => {
+            if (e.target.closest('a, button, .project-card')) cursor.classList.add('hovered');
+        }, { passive: true });
+
+        document.addEventListener('mouseout', e => {
+            if (e.target.closest('a, button, .project-card')) cursor.classList.remove('hovered');
+        }, { passive: true });
     }
 </script>
 
