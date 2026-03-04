@@ -4,21 +4,27 @@
    ============================================================ */
 
 :root {
-    --bg:       #0a0a0a;
-    --surface:  #111111;
-    --border:   #1e1e1e;
-    --accent:   #c8f05d;
-    --accent2:  #5dc8f0;
-    --text:     #e8e8e8;
-    --muted:    #666;
-    --card-bg:  #131313;
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --border: #1e1e1e;
+    --accent: #c8f05d;
+    --accent2: #5dc8f0;
+    --text: #e8e8e8;
+    --muted: #666;
+    --card-bg: #131313;
 }
 
 /* ── RESET & BASE ─────────────────────────────────────────── */
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background: var(--bg);
@@ -44,13 +50,15 @@ body::before {
 
 nav {
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.25rem 2.5rem;
-    background: rgba(10,10,10,0.85);
+    background: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
 }
@@ -79,7 +87,10 @@ nav {
     padding: 0.5rem 0.75rem;
     margin: -0.5rem -0.75rem;
 }
-.nav-links a:hover { color: var(--accent); }
+
+.nav-links a:hover {
+    color: var(--accent);
+}
 
 /* ── HERO ─────────────────────────────────────────────────── */
 
@@ -96,9 +107,8 @@ nav {
 .hero-grid-bg {
     position: absolute;
     inset: 0;
-    background-image:
-            linear-gradient(rgba(200,240,93,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(200,240,93,0.03) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(200, 240, 93, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 240, 93, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
 }
 
@@ -267,9 +277,13 @@ section {
     transition: background 0.2s;
 }
 
-.project-card:hover { background: #171717; }
+.project-card:hover {
+    background: #171717;
+}
 
-.project-card:hover .project-img img { transform: scale(1.04); }
+.project-card:hover .project-img img {
+    transform: scale(1.04);
+}
 
 .project-img {
     width: 100%;
@@ -354,8 +368,13 @@ section {
     transition: color 0.2s;
 }
 
-.project-link:hover { color: var(--accent); }
-.project-link.primary { color: var(--accent); }
+.project-link:hover {
+    color: var(--accent);
+}
+
+.project-link.primary {
+    color: var(--accent);
+}
 
 /* ── SKILLS ───────────────────────────────────────────────── */
 
@@ -374,7 +393,8 @@ section {
 .skill-category::before {
     content: '';
     position: absolute;
-    top: -1px; left: 0;
+    top: -1px;
+    left: 0;
     width: 40px;
     height: 2px;
     background: var(--accent);
@@ -449,7 +469,9 @@ section {
     max-width: 500px;
 }
 
-.contact-tagline span { color: var(--accent); }
+.contact-tagline span {
+    color: var(--accent);
+}
 
 .contact-links {
     display: flex;
@@ -475,7 +497,7 @@ section {
 .contact-btn:hover {
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(200,240,93,0.04);
+    background: rgba(200, 240, 93, 0.04);
 }
 
 .contact-btn.primary {
@@ -524,19 +546,42 @@ footer {
     pointer-events: none;
     z-index: 10000;
     transform: translate(-50%, -50%);
-    transition: transform 0.1s, opacity 0.2s;
+    transition: opacity 0.2s;
+    opacity: 0;
 }
 
 /* ── RESPONSIVE ───────────────────────────────────────────── */
 @media (hover: none) {
-    .cursor-dot { display: none; }
+    .cursor-dot {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    section { padding: 3rem 1.5rem; }
-    .hero { padding: 6rem 1.5rem 3rem; }
-    .about-layout { grid-template-columns: 1fr; gap: 2rem; }
-    #projects-container { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    nav {
+        padding: 1rem 1.5rem;
+    }
+
+    section {
+        padding: 3rem 1.5rem;
+    }
+
+    .hero {
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    #projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
 }
