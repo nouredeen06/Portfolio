@@ -1,12 +1,11 @@
 [
   {
-    "title": "E-Commerce Platform",
-    "description": "A full-featured online store with real-time inventory management, Stripe payments, and a custom CMS. Handles thousands of daily transactions.",
-    "image": "images/projects/ecommerce.png",
-    "tags": ["React", "Node.js", "PostgreSQL", "Stripe"],
+    "title": "Clario",
+    "description": "A clean, fast cross-platform personal finance tracker for desktop and mobile. Features expense and income tracking, budget goals, multi-account and multi-currency support, analytics with charts, SMS import on Android, and real-time sync — all wrapped in a polished native UI with multiple themes.",
+    "image": "images/projects/clario-dashboard.png",
+    "tags": ["C#", ".NET 8", "Avalonia UI", "MVVM", "Supabase"],
     "links": [
-      { "label": "Live Site", "href": "#", "primary": true },
-      { "label": "GitHub",    "href": "#"                  }
+      { "label": "GitHub", "href": "https://git.nouredeen.dev/nouredeen/Clario", "primary": true }
     ]
   }
 ]
