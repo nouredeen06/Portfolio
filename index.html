@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Nouredeen Ghazal — Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-
 <nav>
-    <div class="nav-logo" id="nav-name">DEV</div>
+    <div class="nav-logo">NG</div>
     <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Work</a></li>
@@ -23,9 +22,9 @@
 
 <section class="hero" id="home">
     <div class="hero-grid-bg"></div>
-    <div class="hero-tag" id="hero-tag">— Available for work</div>
-    <h1 class="hero-name" id="hero-name">Nouredeen<span>Ghazal.</span></h1>
-    <p class="hero-sub" id="hero-subtitle">Full-Stack Developer crafting modern Desktop applications with clean code and elegant
+    <div class="hero-tag">— Available for work</div>
+    <h1 class="hero-name">Nouredeen<span>Ghazal.</span></h1>
+    <p class="hero-sub">Full-Stack Developer crafting modern Desktop applications with clean code and elegant
         design</p>
     <div class="hero-scroll">scroll</div>
 </section>
@@ -37,8 +36,24 @@
         <div class="section-line"></div>
     </div>
     <div class="about-layout">
-        <div class="about-text fade-in" id="about-text"><p>Loading...</p></div>
-        <div class="about-stats fade-in" id="about-stats"></div>
+        <div class="about-text">
+            <p>Software developer creating cross-platform desktop applications with C# and AvaloniaUI, with a focus on
+                writing clean code for functional, data-driven user interfaces.</p>
+        </div>
+        <div class="about-stats">
+            <div class="stat-box">
+                <div class="stat-num">1+</div>
+                <div class="stat-label">Years exp.</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">3</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">∞</div>
+                <div class="stat-label">Coffee cups</div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -48,7 +63,31 @@
         <h2 class="section-title">Projects</h2>
         <div class="section-line"></div>
     </div>
-    <div id="projects-container"></div>
+    <div id="projects-container">
+        <div class="project-card">
+            <div class="project-img">
+                <img src="images/projects/clario-dashboard.png" alt="Clario" loading="lazy">
+            </div>
+            <div class="project-body">
+                <div class="project-tags">
+                    <span class="tag">C#</span>
+                    <span class="tag">.NET 8</span>
+                    <span class="tag">Avalonia UI</span>
+                    <span class="tag">MVVM</span>
+                    <span class="tag">Supabase</span>
+                </div>
+                <h3 class="project-title">Clario</h3>
+                <p class="project-desc">A clean, fast cross-platform personal finance tracker for desktop and mobile.
+                    Features expense and income tracking, budget goals, multi-account and multi-currency support,
+                    analytics with charts, SMS import on Android, and real-time sync — all wrapped in a polished native
+                    UI with multiple themes.</p>
+                <div class="project-links">
+                    <a href="https://git.nouredeen.dev/nouredeen/Clario" class="project-link primary"
+                       target="_blank" rel="noopener">↗ GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section id="skills">
@@ -57,206 +96,122 @@
         <h2 class="section-title">Skills</h2>
         <div class="section-line"></div>
     </div>
-    <div id="skills-container"></div>
+    <div id="skills-container">
+        <div class="skill-category">
+            <div class="skill-cat-title">Languages</div>
+            <div class="skill-list">
+                <div class="skill-item">
+                    <span class="skill-name">C#</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 88%"></div></div>
+                    <span class="skill-pct">88%</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">SQL</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 75%"></div></div>
+                    <span class="skill-pct">75%</span>
+                </div>
+            </div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-cat-title">Desktop App Development</div>
+            <div class="skill-list">
+                <div class="skill-item">
+                    <span class="skill-name">Avalonia UI</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 88%"></div></div>
+                    <span class="skill-pct">88%</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">.NET</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 82%"></div></div>
+                    <span class="skill-pct">82%</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">MVVM</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 85%"></div></div>
+                    <span class="skill-pct">85%</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Cross-Platform (Mobile / Web)</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 65%"></div></div>
+                    <span class="skill-pct">65%</span>
+                </div>
+            </div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-cat-title">Databases & Backend</div>
+            <div class="skill-list">
+                <div class="skill-item">
+                    <span class="skill-name">Supabase / PostgreSQL</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 80%"></div></div>
+                    <span class="skill-pct">80%</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">MySQL / MariaDB</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 80%"></div></div>
+                    <span class="skill-pct">80%</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">ADO.NET</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 75%"></div></div>
+                    <span class="skill-pct">75%</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">MS SQL Server</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 60%"></div></div>
+                    <span class="skill-pct">60%</span>
+                </div>
+            </div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-cat-title">Tools</div>
+            <div class="skill-list">
+                <div class="skill-item">
+                    <span class="skill-name">Git</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 80%"></div></div>
+                    <span class="skill-pct">80%</span>
+                </div>
+            </div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-cat-title">Design</div>
+            <div class="skill-list">
+                <div class="skill-item">
+                    <span class="skill-name">Figma</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 75%"></div></div>
+                    <span class="skill-pct">75%</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">UI / UX</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 72%"></div></div>
+                    <span class="skill-pct">72%</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Motion Design</span>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 60%"></div></div>
+                    <span class="skill-pct">60%</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section id="contact">
     <div class="contact-inner">
-        <h2 class="contact-tagline fade-in" id="contact-tagline">
+        <h2 class="contact-tagline">
             Let's build something <span>great together.</span>
         </h2>
-        <div class="contact-links fade-in" id="contact-links"></div>
+        <div class="contact-links">
+            <a href="mailto:nouredeen.ghazal42@gmail.com" class="contact-btn primary">Email Me</a>
+            <a href="https://github.com/nouredeen06" class="contact-btn">GitHub</a>
+            <a href="https://linkedin.com/in/nouredeen-ghazal/" class="contact-btn">LinkedIn</a>
+            <a href="https://ko-fi.com/nouredeen" class="contact-btn">Ko-fi</a>
+        </div>
     </div>
 </section>
 
 <footer>
-    <span id="footer-name">Nouredeen Ghazal</span>
+    <span>Nouredeen Ghazal</span>
 </footer>
-
-
-<script>
-    // Load all three JSON data files in parallel, then render
-    Promise.all([
-        fetch('data/info.json').then(r => r.json()),
-        fetch('data/projects.json').then(r => r.json()),
-        fetch('data/skills.json').then(r => r.json())
-    ])
-        .then(([info, projects, skills]) => {
-            renderInfo(info);
-            renderProjects(projects);
-            renderSkills(skills);
-            setupObserver();
-            setupCursor();
-        })
-        .catch(err => {
-            console.error('Failed to load portfolio data:', err);
-            document.querySelector('#hero-subtitle').textContent =
-                'Error loading data — open this with a local server (e.g. VS Code Live Server or: npx serve .)';
-        });
-
-    // ── RENDERERS ────────────────────────────────────────────────────────────────
-
-    function renderInfo(info) {
-        document.title = info.name + ' — Portfolio';
-        document.querySelector('#nav-name').textContent =
-            info.navInitials || info.name.split(' ').map(w => w[0]).join('');
-        document.querySelector('#footer-name').textContent = info.name;
-
-        // Hero
-        document.querySelector('#hero-tag').textContent = info.heroTag || '— Portfolio';
-        document.querySelector('#hero-subtitle').textContent = info.tagline;
-        const parts = info.name.split(' ');
-        const heroEl = document.querySelector('#hero-name');
-        heroEl.innerHTML = parts.length >= 2
-            ? `${parts.slice(0, -1).join(' ')}<span>${parts[parts.length - 1]}.</span>`
-            : `<span>${info.name}</span>`;
-        // Wait for fonts then fit
-        document.fonts.ready.then(fitHeroName);
-
-        // About
-        document.querySelector('#about-text').innerHTML =
-            info.about.paragraphs.map(p => `<p>${p}</p>`).join('');
-        document.querySelector('#about-stats').innerHTML =
-            info.about.stats.map(s => `
-        <div class="stat-box">
-          <div class="stat-num">${s.number}</div>
-          <div class="stat-label">${s.label}</div>
-        </div>`).join('');
-
-        // Contact
-        document.querySelector('#contact-tagline').innerHTML =
-            info.contact.tagline.replace(/([^.!?]*)$/, m => `<span>${m}</span>`);
-        document.querySelector('#contact-links').innerHTML =
-            info.contact.links.map(l =>
-                `<a href="${l.href}" class="contact-btn ${l.primary ? 'primary' : ''}">${l.label}</a>`
-            ).join('');
-    }
-
-    function renderProjects(projects) {
-        // "image" can be a URL like "https://..." or a local path like "images/projects/myapp.png"
-        document.querySelector('#projects-container').innerHTML =
-            projects.map(p => {
-                const imgHTML = p.image
-                    ? `<img src="${p.image}" alt="${p.title}" loading="lazy"
-               onerror="this.parentNode.innerHTML='<div class=\\'no-image\\'>${p.title.charAt(0)}</div>'">`
-                    : `<div class="no-image">${p.title.charAt(0)}</div>`;
-
-                const tagsHTML = (p.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
-
-                const linksHTML = (p.links || []).length ? `
-          <div class="project-links">
-            ${p.links.map(l =>
-                    `<a href="${l.href}" class="project-link ${l.primary ? 'primary' : ''}"
-                  target="_blank" rel="noopener">${l.primary ? '↗ ' : ''}${l.label}</a>`
-                ).join('')}
-          </div>` : '';
-
-                return `
-          <div class="project-card fade-in">
-            <div class="project-img">${imgHTML}</div>
-            <div class="project-body">
-              <div class="project-tags">${tagsHTML}</div>
-              <h3 class="project-title">${p.title}</h3>
-              <p class="project-desc">${p.description}</p>
-              ${linksHTML}
-            </div>
-          </div>`;
-            }).join('');
-    }
-
-    function renderSkills(skills) {
-        document.querySelector('#skills-container').innerHTML =
-            skills.map(cat => `
-        <div class="skill-category fade-in">
-          <div class="skill-cat-title">${cat.category}</div>
-          <div class="skill-list">
-            ${cat.items.map(s => `
-              <div class="skill-item">
-                <span class="skill-name">${s.name}</span>
-                <div class="skill-bar-track">
-                  <div class="skill-bar-fill" data-level="${s.level}"></div>
-                </div>
-                <span class="skill-pct">${s.level}%</span>
-              </div>`).join('')}
-          </div>
-        </div>`).join('');
-    }
-
-    // ── UTILITIES ────────────────────────────────────────────────────────────────
-
-    function fitHeroName() {
-        const el = document.querySelector('#hero-name');
-        const container = el.parentElement;
-        const padding = parseFloat(getComputedStyle(container).paddingLeft) * 2;
-        const maxWidth = container.clientWidth - padding;
-        let size = Math.floor(maxWidth * 0.13); // start generous
-        const max = 144;
-        const min = 28;
-        size = Math.min(size, max);
-
-        el.style.fontSize = size + 'px';
-        // Walk down until it fits
-        while (el.scrollWidth > maxWidth && size > min) {
-            size -= 1;
-            el.style.fontSize = size + 'px';
-        }
-        // Re-run on resize
-        window._fitHeroName = fitHeroName;
-    }
-
-    window.addEventListener('resize', () => {
-        if (window._fitHeroName) window._fitHeroName();
-    });
-
-    function setupObserver() {
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-                        bar.style.width = bar.dataset.level + '%';
-                    });
-                }
-            });
-        }, {threshold: 0.1});
-
-        document.querySelectorAll('.fade-in, .skill-category').forEach(el => observer.observe(el));
-    }
-
-    function setupCursor() {
-        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-
-        const cursor = document.querySelector('#cursor');
-        let mouseX = 0, mouseY = 0;
-        let rafPending = false;
-        let hasMoved = false;
-
-        document.addEventListener('mousemove', e => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            if (!rafPending) {
-                rafPending = true;
-                requestAnimationFrame(() => {
-                    cursor.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
-                    if (!hasMoved) {
-                        cursor.classList.add('visible');
-                        hasMoved = true;
-                    }
-                    rafPending = false;
-                });
-            }
-        }, { passive: true });
-
-        document.addEventListener('mouseover', e => {
-            if (e.target.closest('a, button, .project-card')) cursor.classList.add('hovered');
-        }, { passive: true });
-
-        document.addEventListener('mouseout', e => {
-            if (e.target.closest('a, button, .project-card')) cursor.classList.remove('hovered');
-        }, { passive: true });
-    }
-</script>
-
 
 </body>
 </html>
